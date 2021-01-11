@@ -1,9 +1,12 @@
 const express = require('express')
-const app = express()
 const listHeroes = require('./routes/heroesRoutes/heroes')
+const bodyParser = require('body-parser')
+
+const app = express()
 const PORT = 3000
 
-
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(listHeroes)
 
 

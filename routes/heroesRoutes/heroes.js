@@ -8,6 +8,21 @@ listHeroes.get('/', (req, res) => {
     res.send(dataHeroesJson)
 })
 
+
+listHeroes.post('/heroes/addnew', (req, res) => {
+    const data = fs.readFileSync('./services/db.json')
+    const heroesJson = JSON.parse(data)
+    const bodyRequest = req.body
+
+
+    heroesJson.heroes.push(bodyRequest)
+
+    fs.writeFileSync('./services/db.json', JSON.stringify(heroesJson))
+    res.send('Heroes insert sucess!')
+
+
+})
+
 listHeroes.get('/marvel', (req, res) => {
     res.send('Marvel')
 
