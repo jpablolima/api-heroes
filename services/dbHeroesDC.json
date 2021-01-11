@@ -1,0 +1,27 @@
+{
+    "heroes": [{
+            "id": 1,
+            "name": "Batman",
+            "intelligence": 100,
+            "strength": 26,
+            "speed": 27,
+            "durability": 50,
+            "power": 47,
+            "combat": 100
+        },
+
+
+        {
+            "id": 4,
+            "name": "Wonder Woman",
+            "slug": "720-wonder-woman",
+            "intelligence": 88,
+            "strength": 100,
+            "speed": 79,
+            "durability": 100,
+            "power": 100,
+            "combat": 100
+        }
+
+    ]
+}

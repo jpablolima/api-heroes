@@ -51,7 +51,9 @@ listHeroes.get('/marvel', (req, res) => {
 })
 
 listHeroes.get('/dc', (req, res) => {
-    res.send('DC')
+    const data = fs.readFileSync('./services/dbHeroesDC.json')
+    const dataHeroesJson = JSON.parse(data)
+    res.send(dataHeroesJson)
 })
 
 
