@@ -1,11 +1,28 @@
 const express = require('express')
 const listHeroes = express.Router()
+const db = require('../../services/db')
+const heroesModel = require('../../model/HeroesModel')
 const fs = require('fs')
 
+
+
+
 listHeroes.get('/', (req, res) => {
-    const data = fs.readFileSync('./services/dbHeroes.json')
-    const dataHeroesJson = JSON.parse(data)
-    res.send(dataHeroesJson)
+    try {
+        const Heroes = new heroesModel({
+            name: 'Bataman',
+            intelligence: '100',
+            strength: '99',
+            speed: 70,
+            power: 80,
+            combat: 180,
+        })
+
+        Heroes.save()
+        res.send('Hero successfully registered')
+    } catch {
+        res.send('Error when registering')
+    }
 })
 
 
@@ -39,7 +56,6 @@ listHeroes.get('/heroes/:id', (req, res) => {
         res.send('Product not found!')
     }
 })
-
 
 
 listHeroes.get('/marvel', (req, res) => {
