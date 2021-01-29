@@ -1,5 +1,5 @@
 const express = require('express')
-const listHeroes = require('./routes/heroesRoutes/heroes')
+const listHeroes = require('./routes/heroesRoutes/listHeroes')
 const bodyParser = require('body-parser')
 
 const app = express()
