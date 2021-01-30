@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 
-const heroes = new mongoose.Schema({
+const hero = new mongoose.Schema({
 
     name: String,
     intelligence: String,
@@ -10,5 +10,5 @@ const heroes = new mongoose.Schema({
 
 })
 
-let modelHeroes = mongoose.model('Hero', heroes)
+let modelHeroes = mongoose.model('hero', hero)
 module.exports = modelHeroes;
