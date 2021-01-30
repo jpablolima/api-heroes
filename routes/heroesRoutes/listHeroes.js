@@ -40,4 +40,31 @@ listHeroes.post('/heroes/addnew', (req, res) => {
 
 
 })
+
+
+listHeroes.put('/heroes/edit/:id', (req, res) => {
+    const idHeroes = req.params.idHeroes
+    if (idHeroes == "" || idHeroes == null || idHeroes == undefined) {
+        res.send('Id not found! ')
+        return
+    }
+
+    const newHeroes = {
+        name: req.body.name,
+        intelligence: req.body.name,
+        speed: req.body.speed,
+        power: req.body.power
+    }
+
+    heroesModel.update({ _id: idHeroes }, newHeroes)
+        .then(() => { res.send('Hero updated successfully!') })
+        .catch((err) => { res.send('Error updating hero!' + err) })
+})
+
+
+
+
+
+
+
 module.exports = listHeroes;
