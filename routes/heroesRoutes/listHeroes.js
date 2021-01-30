@@ -63,8 +63,14 @@ listHeroes.put('/heroes/edit/:id', (req, res) => {
 
 
 
+listHeroes.delete('/hereos/delete/:id', (req, res) => {
+    const idHeroes = req.params.id
 
+    heroesModel.deleteOne({ _id: idHeroes })
+        .then(() => { res.send('Hero successfully deleted') })
+        .catch((err) => { res.send('Error deleting hero') + err })
 
+})
 
 
 module.exports = listHeroes;
